@@ -89,3 +89,4 @@ remove(1);
 
 list(2);
 
+module.exports = {include, update, remove, list};
