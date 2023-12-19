@@ -1,25 +1,23 @@
-// const crud = require("produto.js");
-
 const express = require("express");
 const app = express();
 const port = 3000;
 
-app.get('/', () => {
+app.get('/', (req, res) => {
     res.send("Hello World!");
 })
 
-app.post('/',() => {
+app.post('/',(req, res) => {
     res.send('POST exemplo');
 });
 
-app.put('/',() => {
+app.put('/',(req, res) => {
     res.send('PUT exemplo');
 });
 
-app.delet('/',() => {
+app.delete('/',(req, res) => {
     res.send('DELETE exemplo');
 });
 
-app.listen(port,() => {
+app.listen(port,(req, res) => {
     console.log(`exemplo de app listado na porta ${port}`);
 })
