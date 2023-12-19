@@ -1,7 +1,7 @@
 {
   "name": "crud",
   "version": "1.0.0",
-  "description": "Aqui o Augusto esta praticando o desenvolvimento de uma aplicação em camadas a partir da metodologia incremental",
+  "description": "criação de uma API CRUD",
   "main": "produto.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
