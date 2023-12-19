@@ -1,7 +1,7 @@
 # Projeto de Estudo
 
 ## Objetivo
-Aqui o Augusto esta praticando o desenvolvimento de uma aplicação em camadas a partir da metodologia incremental
+Criação de uma API a fim de estudos, utilizando os métodos get, post, put, delete e patch.
 
 ## Checklist
 
