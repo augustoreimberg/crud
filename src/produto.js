@@ -1,92 +1,48 @@
-//object
-let products = [
-    {
-        id: 1,
-        type: "car",
-        brand: "Porsche",
-        name: "Panamera",
-        engine: "V8",
-        fuel: "eletric"
-    },
-
-    {
-        id: 2,
-        type: "car",
-        brand: "Audi",
-        name: "T.T",
-        engine: "V6",
-        fuel: "gasoline"
-    }
-];
-
-//functions
-function include(newProduct){
-    return products.push(newProduct);
-};
-
-function update(id, newProduct){
-    for (let product of products) {
-        if (product.id === id) {
-            let productIndex = products.indexOf(product);
-            products[productIndex] = {
-                id : id,
-                ...newProduct
-            }
-            break;
-        }
+class Cars {
+    constructor(id, type, brand, name, engine, fuel) {
+        (this.id = id),
+            (this.type = type),
+            (this.brand = brand),
+            (this.name = name),
+            (this.engine = engine),
+            (this.fuel = fuel);
     }
 }
 
-function remove(id){
-    for (let product of products) {
-        if (product.id === id) {
-            let productIndex = products.indexOf(product);
-            products.splice(productIndex,1);
-            break;
+class CarsService {
+    constructor(cars) {
+        this.cars = cars;
+    }
+
+    getId(id){
+        let carId = this.cars.find((element, index) => 
+        {if (element.id === id){
+            element.index = index;
+            return element;
+        }}
+        );
+        return carId;
+    }
+
+    include(newCar) {
+        return this.cars.push(newCar);
+    }
+
+    update(id, newCar) {
+        let carById = getId(id);
+        this.cars[carById.index] = {
+            id : id,
+            ...newCar
         }
     }
-}
 
-function list(id, name){
-    if(id){
-        for(let product of products){
-            if(product.id === id){
-                return product;
+    remove(id){
+        for (let car of this.car) {
+            if (car.id === id) {
+                let carIndex = this.cars.indexoOf(car);
+                this.cars.splice(carIndex, 1);
+                break;
             }
         }
     }
-
-    if(name){
-        for(let product of products){
-            if(product.name === name){
-                return product;
-            }
-        }
-    }
-    return products;
 }
-
-
-//params
-include({
-    id: 3,
-    type: "car",
-    brand: "Ferrari",
-    name: "SP51",
-    engine: "?",
-    fuel: "?"
-});
-
-update(4, {
-    type: "car",
-    brand: "Ferrari",
-    name: "SP51 UPDATED",
-    engine: "V12",
-    fuel: "gasoline"
-});
-
-remove(1);
-
-list(2);
-
-module.exports = {include, update, remove, list};
