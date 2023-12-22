@@ -5,17 +5,17 @@ class CarService {
         this.car = car;
     }
 
-    getById(id){
-        let carId = this.car.find((element, index) => 
-        {if (element.id === id){
-            element.index = index;
-            return element;
-        }}
-        );
+    getById(id) {
+        let carId = this.car.find((element, index) => {
+            if (element.id === id) {
+                element.index = index;
+                return element;
+            }
+        });
         return carId;
     }
 
-    getByName(name){
+    getByName(name) {
         let carName = this.car.find((element) => element.name === name);
         return carName;
     }
@@ -27,22 +27,22 @@ class CarService {
     update(id, newCar) {
         let carById = getId(id);
         this.car[carById.index] = {
-            id : id,
-            ...newCar
-        }
+            id: id,
+            ...newCar,
+        };
     }
 
-    remove(id){
+    remove(id) {
         let carById = getId(id);
         this.car.splice(carById.index);
     }
 
-    list(id, name){
-        if(id){
+    list(id, name) {
+        if (id) {
             return getById(id);
         }
 
-        if(name){
+        if (name) {
             return getByName(name);
         }
 
@@ -50,4 +50,4 @@ class CarService {
     }
 }
 
-module.exports = CarService
+module.exports = CarService;
