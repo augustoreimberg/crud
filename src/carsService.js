@@ -1,13 +1,4 @@
-class Cars {
-    constructor(id, type, brand, name, engine, fuel) {
-        (this.id = id),
-            (this.type = type),
-            (this.brand = brand),
-            (this.name = name),
-            (this.engine = engine),
-            (this.fuel = fuel);
-    }
-}
+const cars = require("Cars");
 
 class CarsService {
     constructor(cars) {
@@ -24,6 +15,11 @@ class CarsService {
         return carId;
     }
 
+    getName(name){
+        let carName = this.cars.find((element) => element.name === name);
+        return carName;
+    }
+
     include(newCar) {
         return this.cars.push(newCar);
     }
@@ -37,12 +33,21 @@ class CarsService {
     }
 
     remove(id){
-        for (let car of this.car) {
-            if (car.id === id) {
-                let carIndex = this.cars.indexoOf(car);
-                this.cars.splice(carIndex, 1);
-                break;
-            }
+        let carById = getId(id);
+        this.cars.splice(carById.index);
+    }
+
+    list(id, name){
+        if(id){
+            return getId(id);
         }
+
+        if(name){
+            return getName(name);
+        }
+
+        return cars;
     }
 }
+
+module.exports = CarsService
