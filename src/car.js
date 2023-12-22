@@ -1,4 +1,4 @@
-class Cars {
+class Car {
     constructor(id, type, brand, name, engine, fuel) {
         (this.id = id),
             (this.type = type),
@@ -9,4 +9,4 @@ class Cars {
     }
 }
 
-module.exports = Cars
+module.exports = Car
