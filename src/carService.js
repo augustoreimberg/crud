@@ -1,11 +1,11 @@
-const car = require("Car");
+let cars = require("../src/cars")
 
 class CarService {
     constructor(cars) {
     }
 
     getById(id) {
-        let carId = this.car.find((car, index) => {
+        let carId = this.cars.find((car, index) => {
             if (car.id === id) {
                 car.index = index;
                 return car;
@@ -15,17 +15,17 @@ class CarService {
     }
 
     getByName(name) {
-        let carName = this.car.find((element) => car.name === name);
+        let carName = this.cars.find((element) => car.name === name);
         return carName;
     }
 
     include(car) {
-        return this.car.push(car);
+        return this.cars.push(car);
     }
 
     update(id, car) {
-        let car = getId(id);
-        this.car[car.index] = {
+        car = getId(id);
+        this.cars[car.index] = {
             id: id,
             ...car,
         };
@@ -33,7 +33,7 @@ class CarService {
 
     remove(id) {
         let carById = getId(id);
-        this.car.splice(carById.index);
+        this.cars.splice(carById.index);
     }
 
     list(id, name) {
@@ -48,5 +48,3 @@ class CarService {
         return car;
     }
 }
-
-module.exports = CarService;
