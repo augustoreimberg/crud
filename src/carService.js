@@ -1,34 +1,33 @@
 const car = require("Car");
 
 class CarService {
-    constructor(car) {
-        this.car = car;
+    constructor(cars) {
     }
 
     getById(id) {
-        let carId = this.car.find((element, index) => {
-            if (element.id === id) {
-                element.index = index;
-                return element;
+        let carId = this.car.find((car, index) => {
+            if (car.id === id) {
+                car.index = index;
+                return car;
             }
         });
         return carId;
     }
 
     getByName(name) {
-        let carName = this.car.find((element) => element.name === name);
+        let carName = this.car.find((element) => car.name === name);
         return carName;
     }
 
-    include(newCar) {
-        return this.car.push(newCar);
+    include(car) {
+        return this.car.push(car);
     }
 
-    update(id, newCar) {
-        let carById = getId(id);
-        this.car[carById.index] = {
+    update(id, car) {
+        let car = getId(id);
+        this.car[car.index] = {
             id: id,
-            ...newCar,
+            ...car,
         };
     }
 
