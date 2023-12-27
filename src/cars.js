@@ -1,7 +1,7 @@
 let cars = [
     {
     id:1,
-    model:"Panamera",
+    name:"Panamera",
     brand:"Porsche",
     engine:"V8",
     fuel:"Gasoline"
@@ -9,7 +9,7 @@ let cars = [
 
     {
     id:2,
-    model:"Cayenne",
+    name:"Cayenne",
     brand:"Porsche",
     engine:"V6",
     fuel:"Alcohol"
@@ -17,7 +17,7 @@ let cars = [
 
     {
     id:3,
-    model:"Carrera",
+    name:"Carrera",
     brand:"Porsche",
     engine:"V12",
     fuel:"Eletric"

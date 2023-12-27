@@ -15,7 +15,7 @@ class CarService {
     }
 
     getByName(name) {
-        let carName = this.cars.find((element) => car.name === name);
+        let carName = this.cars.find((nameOfCar) => car.name === name);
         return carName;
     }
 
@@ -48,3 +48,5 @@ class CarService {
         return car;
     }
 }
+
+module.exports = CarService
