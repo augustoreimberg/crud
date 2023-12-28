@@ -1,17 +1,16 @@
 let cars = require("./cars");
-const CarService = require("./carService");
 const carService = require("./carService");
 const service = new carService(cars);
+
 
 // testar o get by id
 function shouldGetCarById() {
     const car = service.getById(1);
-    return car.id;
+    return car;
 }
 
 //verificar se há id
 function shouldNotGetCarById() {
-    const service = new CarService();
     const car = service.getById();
     return car === undefined;
 }
@@ -106,4 +105,4 @@ const listCar = shouldListCar();
 const notListCar = shouldNotListCar();
 
 //console log
-console.log("get by id", shouldGetCarById, shouldNotGetCarById);
+console.log("get by id", shouldGetCarById())

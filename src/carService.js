@@ -2,7 +2,9 @@ let cars = require("../src/cars")
 
 class CarService {
     constructor(cars) {
+        this.cars = cars;
     }
+
 
     getById(id) {
         let carId = this.cars.find((car, index) => {
@@ -15,7 +17,7 @@ class CarService {
     }
 
     getByName(name) {
-        let carName = this.cars.find((nameOfCar) => car.name === name);
+        let carName = this.cars.find((car) => car.name === name);
         return carName;
     }
 
@@ -24,7 +26,7 @@ class CarService {
     }
 
     update(id, car) {
-        car = getId(id);
+        id = getById(id);
         this.cars[car.index] = {
             id: id,
             ...car,
@@ -48,5 +50,4 @@ class CarService {
         return car;
     }
 }
-
 module.exports = CarService
