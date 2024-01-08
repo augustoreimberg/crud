@@ -43,11 +43,11 @@ class CarService {
 
     list(search) {
         if (search != isNaN) {
-            return this.getById(value);
+            return this.getById(search);
         }
 
         if (search === isNaN) {
-            return this.getByName(value);
+            return this.getByName(search);
         }
 
         return this.cars;
