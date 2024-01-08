@@ -1,5 +1,3 @@
-let cars = require("../src/cars")
-
 class CarService {
     constructor(cars) {
         this.cars = cars;
@@ -43,16 +41,17 @@ class CarService {
         this.cars.splice(carById.index);
     }
 
-    list(id, name) {
-        if (id) {
-            return this.getById(id);
+    list(search) {
+        if (search != isNaN) {
+            return this.getById(value);
         }
 
-        if (name) {
-            return this.getByName(name);
+        if (search === isNaN) {
+            return this.getByName(value);
         }
 
-        return car;
+        return cars;
     }
 }
+
 module.exports = CarService

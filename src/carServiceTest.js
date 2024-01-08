@@ -105,4 +105,4 @@ const listCar = shouldListCar();
 const notListCar = shouldNotListCar();
 
 //console log
-console.log("get by id ", getCarById, " not get by id ", notGetCarById)
+console.log("list car by id", listCar)
