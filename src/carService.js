@@ -50,8 +50,14 @@ class CarService {
             return this.getByName(value);
         }
 
-        return cars;
+        return this.cars;
     }
 }
 
+console.log(list(),
+list(1),
+list('Panamera'),
+list(-5),
+list(9),
+list('nome inválido'))
 module.exports = CarService
