@@ -20,8 +20,10 @@ class CarService {
     }
 
     getByName(name) {
-        let carName = this.cars.find((car) => car.name === name);
-        return carName;
+        if(name != isNaN){
+            let carName = this.cars.find((car) => car.name === name);
+            return carName;
+        }
     }
 
     include(car) {
@@ -37,7 +39,7 @@ class CarService {
     }
 
     remove(id) {
-        let carById = this.getId(id);
+        let carById = this.getById(id);
         this.cars.splice(carById.index);
     }
 

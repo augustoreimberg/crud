@@ -86,8 +86,8 @@ function shouldNotRemoveCar(){
     return car === undefined;
 }
 
-const removeCar = shouldRemoveCa();
-const notRemoveCar = ldNotRemoveCar();
+const removeCar = shouldRemoveCar();
+const notRemoveCar = shouldNotRemoveCar();
 
 //testar list
 function shouldListCar(){
