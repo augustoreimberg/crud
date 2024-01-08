@@ -7,13 +7,16 @@ class CarService {
 
 
     getById(id) {
-        let carId = this.cars.find((car, index) => {
-            if (car.id === id) {
-                car.index = index;
-                return car;
-            }
-        });
-        return carId;
+        if(id != undefined && id >= 0 && id != NaN ){
+            let carId = this.cars.find((car, index) => {
+                if (car.id === id) {
+                    car.index = index;
+                    return car;
+                }
+            });
+            return carId;
+        }
+        return "erro";
     }
 
     getByName(name) {
@@ -22,29 +25,29 @@ class CarService {
     }
 
     include(car) {
-        return this.cars.push(car);
+        let includeCar = this.cars.push(car)
     }
 
     update(id, car) {
-        id = getById(id);
-        this.cars[car.index] = {
+        let carById = this.getById(id);
+        this.cars[carById.index] = {
             id: id,
             ...car,
         };
     }
 
     remove(id) {
-        let carById = getId(id);
+        let carById = this.getId(id);
         this.cars.splice(carById.index);
     }
 
     list(id, name) {
         if (id) {
-            return getById(id);
+            return this.getById(id);
         }
 
         if (name) {
-            return getByName(name);
+            return this.getByName(name);
         }
 
         return car;

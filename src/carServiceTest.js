@@ -12,7 +12,7 @@ function shouldGetCarById() {
 //verificar se há id
 function shouldNotGetCarById() {
     const car = service.getById();
-    return car === undefined;
+    return car;
 }
 
 const getCarById = shouldGetCarById();
@@ -105,4 +105,4 @@ const listCar = shouldListCar();
 const notListCar = shouldNotListCar();
 
 //console log
-console.log("get by id", shouldGetCarById())
+console.log("get by id ", getCarById, " not get by id ", notGetCarById)
