@@ -3,20 +3,27 @@ class CarService {
         this.cars = cars;
     }
 
+    isValidId(id){
+        return id != undefined && id >= 0 && id != NaN
+    }
+
+    isValidName(name){
+        return name == NaN
+    }
+
     getById(id) {
-        if(id != undefined && id >= 0 && id != NaN ){
-            let carId = this.cars.find((car, index) => {
+        if(this.isValidId(id)){
+            return this.cars.find((car) => {
                 if (car.id === id) {
                     return car;
                 }
             });
-            return;
         }
         return undefined;
     }
 
     getByName(name) {
-        if(name != isNaN){
+        if(this.isValidName(name)){
             let carName = this.cars.find((car) => car.name === name);
             return carName;
         }
