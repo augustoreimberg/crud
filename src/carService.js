@@ -3,18 +3,16 @@ class CarService {
         this.cars = cars;
     }
 
-
     getById(id) {
         if(id != undefined && id >= 0 && id != NaN ){
             let carId = this.cars.find((car, index) => {
                 if (car.id === id) {
-                    car.index = index;
                     return car;
                 }
             });
-            return carId;
+            return;
         }
-        return "erro";
+        return undefined;
     }
 
     getByName(name) {

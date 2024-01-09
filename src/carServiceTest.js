@@ -6,17 +6,21 @@ const service = new carService(cars);
 // testar o get by id
 function shouldGetCarById() {
     const car = service.getById(1);
-    return car;
+    return car != undefined;
 }
 
 //verificar se há id
 function shouldNotGetCarById() {
     const car = service.getById();
-    return car;
+    return car == undefined;
 }
 
 const getCarById = shouldGetCarById();
 const notGetCarById = shouldNotGetCarById();
+
+console.log("testing...")
+console.log("get car by id", getCarById)
+console.log("not get car by id", notGetCarById);
 
 // testar o get by name
 function shouldGetCarByName() {
@@ -32,6 +36,8 @@ function shouldNotGetCarByName() {
 
 const getCarByName = shouldGetCarByName();
 const notGetCarByName = shouldNotGetCarByName();
+
+
 
 //testar o include
 function shouldIncludeCar(){
@@ -103,6 +109,3 @@ function shouldNotListCar(){
 
 const listCar = shouldListCar();
 const notListCar = shouldNotListCar();
-
-//console log
-console.log("list car by id", listCar)
