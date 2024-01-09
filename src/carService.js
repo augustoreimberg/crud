@@ -4,11 +4,11 @@ class CarService {
     }
 
     isValidId(id){
-        return id != undefined && id >= 0 && id != NaN
+        return id != undefined && id >= 0 && !NaN(id);
     }
 
     isValidName(name){
-        return name == NaN
+        return isNaN(name)
     }
 
     getById(id) {
@@ -24,8 +24,7 @@ class CarService {
 
     getByName(name) {
         if(this.isValidName(name)){
-            let carName = this.cars.find((car) => car.name === name);
-            return carName;
+            return this.cars.find((car) => car.name === name);
         }
     }
 

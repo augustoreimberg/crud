@@ -54,73 +54,73 @@ console.log("not get car by invalid name", notGetCarByName);
 
 
 
-// //testar o include
-// function shouldIncludeCar(){
-//     const car = service.include({
-//         id:4,
-//         name:"Macan",
-//         brand:"Porsche",
-//         engine:"2.0",
-//         fuel:"Gasoline"
-//     })
-//     return car;
-// }
+//testar o include
+function shouldIncludeCar(){
+    const car = service.include({
+        id:4,
+        name:"Macan",
+        brand:"Porsche",
+        engine:"2.0",
+        fuel:"Gasoline"
+    })
+    return car;
+}
 
-// //verificar se há include
-// function shouldNotIncludeCar() {
-//     const car = service.include();
-//     return car === undefined;
-// }
+//verificar se há include
+function shouldNotIncludeCar() {
+    const car = service.include();
+    return car === undefined;
+}
 
-// const includeCar = shouldIncludeCar();
-// const notIncludeCar = shouldNotIncludeCar(); 
+const includeCar = shouldIncludeCar();
+const notIncludeCar = shouldNotIncludeCar(); 
 
-// //testar o update
-// function shouldUpdateCar(){
-//     const car = service.update(2,{
-//         name:"Spyder",
-//         brand:"Porsche",
-//         engine:"V6",
-//         fuel:"Gasoline"
-//     })
-//     return car;
-// }
+//testar o update
+function shouldUpdateCar(){
+    const car = service.update(2,{
+        name:"Spyder",
+        brand:"Porsche",
+        engine:"V6",
+        fuel:"Gasoline"
+    })
+    return car;
+}
 
-// //verificar se há update
-// function shouldNotUpdateCar(){
-//     const car = service.update()
-//     return car === undefined;
-// }
+//verificar se há update
+function shouldNotUpdateCar(){
+    const car = service.update()
+    return car === undefined;
+}
 
-// const updateCar = shouldUpdateCar();
-// const notUpdateCar = shouldNotUpdateCar();
+const updateCar = shouldUpdateCar();
+const notUpdateCar = shouldNotUpdateCar();
 
-// //testar remove
-// function shouldRemoveCar(){
-//     let car = service.remove(1);
-//     return car;
-// }
+//testar remove
+function shouldRemoveCar(){
+    let car = service.remove(1);
+    return car;
+}
 
-// //verificar se há remove
-// function shouldNotRemoveCar(){
-//     let car = service.remove();
-//     return car === undefined;
-// }
+//verificar se há remove
+function shouldNotRemoveCar(){
+    let car = service.remove();
+    return car === undefined;
+}
 
-// const removeCar = shouldRemoveCar();
-// const notRemoveCar = shouldNotRemoveCar();
+const removeCar = shouldRemoveCar();
+const notRemoveCar = shouldNotRemoveCar();
 
-// //testar list
-// function shouldListCar(){
-//     let car = service.list(3, "Carrera");
-//     return car;
-// }
+//testar list
+function shouldListCar(){
+    let car = service.list(3, "Carrera");
+    return car;
+}
 
-// //verificar se há list
-// function shouldNotListCar(){
-//     let car = service.list();
-//     return car === undefined
-// }
+//verificar se há list
+function shouldNotListCar(){
+    let car = service.list();
+    return car === undefined
+}
 
-// const listCar = shouldListCar();
-// const notListCar = shouldNotListCar();
+const listCar = shouldListCar();
+const notListCar = shouldNotListCar();
