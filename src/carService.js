@@ -4,7 +4,7 @@ class CarService {
     }
 
     isValidId(id){
-        return id != undefined && id >= 0 && !NaN(id);
+        return id != undefined && id >= 0 && !isNaN(id);
     }
 
     isValidName(name){
