@@ -3,16 +3,16 @@ class CarService {
         this.cars = cars;
     }
 
-    isValidId(id){
+    isValidId(id) {
         return id != undefined && id >= 0 && !isNaN(id);
     }
 
-    isValidName(name){
-        return isNaN(name)
+    isValidName(name) {
+        return isNaN(name);
     }
 
     getById(id) {
-        if(this.isValidId(id)){
+        if (this.isValidId(id)) {
             return this.cars.find((car) => {
                 if (car.id === id) {
                     return car;
@@ -23,26 +23,40 @@ class CarService {
     }
 
     getByName(name) {
-        if(this.isValidName(name)){
+        if (this.isValidName(name)) {
             return this.cars.find((car) => car.name === name);
         }
     }
 
     include(car) {
-        let includeCar = this.cars.push(car)
+        if (this.isValidId(car.id)) {
+            const existingCar = this.getById(car.id);
+
+            if (!existingCar) {
+                this.cars.push(car);
+                return true;
+            }
+        }
+        return false;
     }
 
     update(id, car) {
-        let carById = this.getById(id);
-        this.cars[carById.index] = {
-            id: id,
-            ...car,
-        };
+        if (this.isValidId(id)){
+            let carById = this.getById(id);
+            this.cars[carById.index] = {
+                id: id,
+                ...car,
+            };
+        }
+        return false;
     }
 
     remove(id) {
-        let carById = this.getById(id);
-        this.cars.splice(carById.index);
+        if (this.isValidId(id)){
+            let carById = this.getById(id);
+            this.cars.splice(carById.index);
+        }
+        return false;
     }
 
     list(search) {
@@ -58,4 +72,4 @@ class CarService {
     }
 }
 
-module.exports = CarService
+module.exports = CarService;

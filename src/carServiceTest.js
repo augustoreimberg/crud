@@ -26,7 +26,7 @@ function shouldNotGetCarById() {
 const getCarById = shouldGetCarById();
 const notGetCarById = shouldNotGetCarById();
 
-console.log("testing...")
+console.log("testing get car by id...")
 console.log("get car by valid id", getCarById)
 console.log("not get car by invalid id", notGetCarById);
 
@@ -48,7 +48,7 @@ function shouldNotGetCarByName() {
 const getCarByName = shouldGetCarByName();
 const notGetCarByName = shouldNotGetCarByName();
 
-console.log("testing...")
+console.log("testing get car by name...")
 console.log("get car by valid name", getCarByName)
 console.log("not get car by invalid name", notGetCarByName);
 
@@ -68,12 +68,18 @@ function shouldIncludeCar(){
 
 //verificar se há include
 function shouldNotIncludeCar() {
-    const car = service.include();
-    return car === undefined;
+    const car1 = service.include("gfjhsd");
+    const car2 = service.include(5);
+    const car3 = service.include({});
+    return !(car1 && car2 && car3);
 }
 
 const includeCar = shouldIncludeCar();
 const notIncludeCar = shouldNotIncludeCar(); 
+
+console.log("testing include...")
+console.log("include valid car", includeCar)
+console.log("not include invalid car", notIncludeCar);
 
 //testar o update
 function shouldUpdateCar(){
@@ -88,12 +94,18 @@ function shouldUpdateCar(){
 
 //verificar se há update
 function shouldNotUpdateCar(){
-    const car = service.update()
-    return car === undefined;
+    const car1 = service.update(7,"a");
+    const car2 = service.update(2,{});
+    const car3 = service.update("a", 5);
+    
 }
 
 const updateCar = shouldUpdateCar();
 const notUpdateCar = shouldNotUpdateCar();
+
+console.log("testing update...");
+console.log("update valid car", updateCar);
+console.log("not update invalid car", notUpdateCar);
 
 //testar remove
 function shouldRemoveCar(){
