@@ -95,9 +95,10 @@ function shouldUpdateCar(){
 //verificar se há update
 function shouldNotUpdateCar(){
     const car1 = service.update(7,"a");
-    const car2 = service.update(2,{});
+    const car2 = service.update(-9,{});
     const car3 = service.update("a", 5);
     
+    return !(car1 && car2 && car3);
 }
 
 const updateCar = shouldUpdateCar();

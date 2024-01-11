@@ -3,16 +3,21 @@ class CarService {
         this.cars = cars;
     }
 
-    isValidId(id) {
+    _isValidId(id) {
         return id != undefined && id >= 0 && !isNaN(id);
     }
 
-    isValidName(name) {
-        return isNaN(name);
+    _isValidName(name) {
+        return name != undefined && isNaN(name);
+    }
+
+    _getIndex(id){
+        const findCar = this.cars.filter(filterCar => id === filterCar.id)
+        return this.cars.indexOf(findCar);
     }
 
     getById(id) {
-        if (this.isValidId(id)) {
+        if (this._isValidId(id)) {
             return this.cars.find((car) => {
                 if (car.id === id) {
                     return car;
@@ -23,13 +28,13 @@ class CarService {
     }
 
     getByName(name) {
-        if (this.isValidName(name)) {
+        if (this._isValidName(name)) {
             return this.cars.find((car) => car.name === name);
         }
     }
 
     include(car) {
-        if (this.isValidId(car.id)) {
+        if (this._isValidId(car.id)) {
             const existingCar = this.getById(car.id);
 
             if (!existingCar) {
@@ -41,18 +46,20 @@ class CarService {
     }
 
     update(id, car) {
-        if (this.isValidId(id)){
-            let carById = this.getById(id);
-            this.cars[carById.index] = {
+        const index = this._getIndex(id)
+        if (index) {
+            this.cars[index] = {
                 id: id,
                 ...car,
             };
+
+            return true
         }
         return false;
     }
 
     remove(id) {
-        if (this.isValidId(id)){
+        if (this._isValidId(id)){
             let carById = this.getById(id);
             this.cars.splice(carById.index);
         }
