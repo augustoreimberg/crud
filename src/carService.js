@@ -12,8 +12,14 @@ class CarService {
     }
 
     _getIndex(id){
-        const findCar = this.cars.filter(filterCar => id === filterCar.id)
-        return this.cars.indexOf(findCar);
+        if (this._isValidId(id)) {
+            const index = this.cars.findIndex((car => car.id == id));
+
+            if (index >= 0) {
+                return index
+            }
+        }
+        return undefined
     }
 
     getById(id) {
@@ -52,30 +58,35 @@ class CarService {
                 id: id,
                 ...car,
             };
-
             return true
         }
         return false;
     }
 
     remove(id) {
-        if (this._isValidId(id)){
-            let carById = this.getById(id);
-            this.cars.splice(carById.index);
+        const index = this._getIndex(id)
+        if (index){
+            this.cars.splice(index);
+            return true;
         }
         return false;
     }
 
     list(search) {
         if (search != isNaN) {
-            return this.getById(search);
+            this.getById(search);
+            return true;
         }
 
         if (search === isNaN) {
-            return this.getByName(search);
+            this.getByName(search);
+            return true;
         }
-
-        return this.cars;
+        
+        if (search === undefined){
+            return this.cars
+        }
+        return undefined;
     }
 }
 

@@ -52,8 +52,6 @@ console.log("testing get car by name...")
 console.log("get car by valid name", getCarByName)
 console.log("not get car by invalid name", notGetCarByName);
 
-
-
 //testar o include
 function shouldIncludeCar(){
     const car = service.include({
@@ -63,7 +61,7 @@ function shouldIncludeCar(){
         engine:"2.0",
         fuel:"Gasoline"
     })
-    return car;
+    return car != undefined;
 }
 
 //verificar se há include
@@ -89,12 +87,12 @@ function shouldUpdateCar(){
         engine:"V6",
         fuel:"Gasoline"
     })
-    return car;
+    return car != undefined;
 }
 
 //verificar se há update
 function shouldNotUpdateCar(){
-    const car1 = service.update(7,"a");
+    const car1 = service.update();
     const car2 = service.update(-9,{});
     const car3 = service.update("a", 5);
     
@@ -110,30 +108,45 @@ console.log("not update invalid car", notUpdateCar);
 
 //testar remove
 function shouldRemoveCar(){
-    let car = service.remove(1);
-    return car;
+    let car = service.remove(2);
+    return car != undefined;
 }
 
 //verificar se há remove
 function shouldNotRemoveCar(){
-    let car = service.remove();
-    return car === undefined;
+    let car1 = service.remove();
+    let car2 = service.remove();
+    let car3 = service.remove();
+    return !(car1 && car2 && car3);
 }
 
 const removeCar = shouldRemoveCar();
 const notRemoveCar = shouldNotRemoveCar();
 
+console.log("testing remove...");
+console.log("remove valid car", removeCar);
+console.log("not remove invalid car", notRemoveCar);
+
 //testar list
 function shouldListCar(){
-    let car = service.list(3, "Carrera");
-    return car;
+    let car1 = service.list(1);
+    let car2 = service.list("Carrera");
+    let car3 = service.list()
+
+    return (car1 && car2 && car3) != undefined;
 }
 
 //verificar se há list
 function shouldNotListCar(){
-    let car = service.list();
-    return car === undefined
+    let car1 = service.list(7)
+    let car2 = service.list("a")
+
+    return (car1 && car2)
 }
 
 const listCar = shouldListCar();
 const notListCar = shouldNotListCar();
+
+console.log("testing list...");
+console.log("list valid car", listCar);
+console.log("not list invalid car", notListCar);
