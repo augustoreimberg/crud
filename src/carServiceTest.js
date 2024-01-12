@@ -141,7 +141,7 @@ function shouldNotListCar(){
     let car1 = service.list(7)
     let car2 = service.list("a")
 
-    return (car1 && car2)
+    return !(car1 && car2)
 }
 
 const listCar = shouldListCar();

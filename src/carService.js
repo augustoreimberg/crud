@@ -11,15 +11,15 @@ class CarService {
         return name != undefined && isNaN(name);
     }
 
-    _getIndex(id){
+    _getIndex(id) {
         if (this._isValidId(id)) {
-            const index = this.cars.findIndex((car => car.id == id));
+            const index = this.cars.findIndex((car) => car.id == id);
 
             if (index >= 0) {
-                return index
+                return index;
             }
         }
-        return undefined
+        return undefined;
     }
 
     getById(id) {
@@ -52,20 +52,20 @@ class CarService {
     }
 
     update(id, car) {
-        const index = this._getIndex(id)
+        const index = this._getIndex(id);
         if (index) {
             this.cars[index] = {
                 id: id,
                 ...car,
             };
-            return true
+            return true;
         }
         return false;
     }
 
     remove(id) {
-        const index = this._getIndex(id)
-        if (index){
+        const index = this._getIndex(id);
+        if (index) {
             this.cars.splice(index);
             return true;
         }
@@ -73,20 +73,22 @@ class CarService {
     }
 
     list(search) {
-        if (search != isNaN) {
+        if (this._isValidName(search)) {
             this.getById(search);
             return true;
         }
 
-        if (search === isNaN) {
+        if (this._isValidId(search)) {
             this.getByName(search);
             return true;
         }
-        
-        if (search === undefined){
-            return this.cars
+
+        if (search === undefined) {
+            this.cars;
+            return true;
         }
-        return undefined;
+        
+        return false;
     }
 }
 
