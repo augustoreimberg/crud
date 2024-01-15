@@ -12,7 +12,6 @@ function shouldGetCarById(carId) {
     if (car.name == undefined) {
         throw new InvalidResultTestError('shouldGetCarById')
     }
-
 }
 
 const allInvalidIds = ['', -1, 'a', 0, 9, true, false]
@@ -125,12 +124,12 @@ function shouldNotUpdateCar(cars) {
     const key = Object.entries(car)[0][0]
     const val = Object.entries(car)[0][1]
 
-    let updated = false
+    let updated = true
     try {
         updated = service.update(key, val)
     } catch (error) {
-        if (!(error instanceof InvalidIdError)) {
-            throw new InvalidResultTestError('shouldNotUpdateCar')
+        if (error instanceof InvalidIdError) {
+            updated = false
         }
     } finally {
         cars.splice(0, 1)
@@ -157,13 +156,13 @@ function shouldRemoveCar(carId) {
 }
 
 function shouldNotRemoveCar(invalidCar) {
-    let carRemoved = false
+    let carRemoved = true
     try {
         carRemoved = service.remove(invalidCar)
     } catch (error) {
-        if (!(error instanceof InvalidIdError
-            || error instanceof CarNotFoundError)) {
-            throw new InvalidResultTestError('shouldNotRemoveCar')
+        if (error instanceof InvalidIdError
+            || error instanceof CarNotFoundError) {
+            carRemoved = false
         }
     }
 
