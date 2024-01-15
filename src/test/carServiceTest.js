@@ -4,12 +4,12 @@ const service = new carService(cars)
 const Car = require('../model/car')
 const InvalidIdError = require('../error/invalidIdError')
 const CarNotFoundError = require('../error/carNotFoundError')
-const InvalidResultTestError = require('./InvalidResultTestError')
+const InvalidResultTestError = require('./error/InvalidResultTestError')
 
 function shouldGetCarById(carId) {
     const car = service.getById(carId)
 
-    if (car.name == undefined) {
+    if (!car.name) {
         throw new InvalidResultTestError('shouldGetCarById')
     }
 }
@@ -45,7 +45,7 @@ shouldNotGetCarById(allInvalidIds)
 function shouldGetCarByName(carName) {
     const car = service.getByName(carName)
 
-    if (car.name == undefined) {
+    if (!car.name) {
         throw new InvalidResultTestError('shouldGetCarByName')
     }
 }
@@ -177,7 +177,7 @@ shouldNotRemoveCar()
 function shouldListCar(searchTerm) {
     let car = service.list(searchTerm)
 
-    if (car.name == undefined) {
+    if (!car.name) {
         throw new InvalidResultTestError('shouldListCar')
     }
 }

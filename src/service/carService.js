@@ -7,7 +7,7 @@ class CarService {
     }
 
     _isValidId(id) {
-        if (id != undefined && typeof id === 'number' && id >= 0) {
+        if (id && typeof id === 'number' && id >= 0) {
             return true
         }
 
@@ -15,7 +15,7 @@ class CarService {
     }
 
     _isValidName(name) {
-        if (name != undefined && isNaN(name)) {
+        if (name && isNaN(name)) {
             return true
         }
 
