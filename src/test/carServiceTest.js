@@ -157,13 +157,18 @@ function shouldRemoveCar(carId) {
 }
 
 function shouldNotRemoveCar(invalidCar) {
-    let carRemoved
+    let carRemoved = false
     try {
         carRemoved = service.remove(invalidCar)
     } catch (error) {
-        if (!(error instanceof InvalidIdError)) {
+        if (!(error instanceof InvalidIdError
+            || error instanceof CarNotFoundError)) {
             throw new InvalidResultTestError('shouldNotRemoveCar')
         }
+    }
+
+    if (carRemoved) {
+        throw new InvalidResultTestError('shouldNotRemoveCar')
     }
 }
 

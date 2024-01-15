@@ -29,6 +29,8 @@ class CarService {
             if (index >= 0) {
                 return index
             }
+
+            throw new CarNotFoundError()
         }
     }
 
@@ -98,10 +100,12 @@ class CarService {
 
     remove(id) {
         const index = this._getIndex(id)
+
         if (index >= 0) {
             this.cars.splice(index, 1)
             return true
         }
+        
         return false
     }
 
