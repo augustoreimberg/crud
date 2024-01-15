@@ -5,7 +5,7 @@ class Car {
             (this.brand = brand),
             (this.name = name),
             (this.engine = engine),
-            (this.fuel = fuel);
+            (this.fuel = fuel)
     }
 }
 
