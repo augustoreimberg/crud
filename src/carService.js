@@ -4,7 +4,7 @@ class CarService {
     }
 
     _isValidId(id) {
-        return id != undefined && id >= 0 && !isNaN(id) && this.cars.find((idFind) => idFind === id);
+        return id != undefined && id >= 0 && typeof(id) === "number" && this.cars.find((idFind) => idFind === id);
     }
 
     _isValidName(name) {
